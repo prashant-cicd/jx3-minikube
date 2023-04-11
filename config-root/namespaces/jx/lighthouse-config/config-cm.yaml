@@ -8,6 +8,7 @@ data:
     in_repo_config:
       enabled:
         prashant-cicd/jx3-minikube: true
+        prashant-cicd/simple-java-maven-app: true
     plank: {}
     pod_namespace: jx
     prowjob_namespace: jx
@@ -20,6 +21,7 @@ data:
         skip-unknown-contexts: false
       merge_method:
         prashant-cicd/jx3-minikube: merge
+        prashant-cicd/simple-java-maven-app: merge
       queries:
       - labels:
         - approved
@@ -31,6 +33,7 @@ data:
         - needs-rebase
         repos:
         - prashant-cicd/jx3-minikube
+        - prashant-cicd/simple-java-maven-app
       - labels:
         - updatebot
         missingLabels:
@@ -41,6 +44,7 @@ data:
         - needs-rebase
         repos:
         - prashant-cicd/jx3-minikube
+        - prashant-cicd/simple-java-maven-app
       target_url: http://lighthouse-jx.192.168.59.134.nip.io/merge/status
 kind: ConfigMap
 metadata:

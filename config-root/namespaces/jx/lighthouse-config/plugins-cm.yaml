@@ -6,6 +6,10 @@ data:
       repos:
       - prashant-cicd/jx3-minikube
       require_self_approval: true
+    - lgtm_acts_as_approve: true
+      repos:
+      - prashant-cicd/simple-java-maven-app
+      require_self_approval: true
     cat: {}
     cherry_pick_unapproved: {}
     config_updater:
@@ -21,6 +25,11 @@ data:
         name: cd-indicators
       - endpoint: http://lighthouse-webui-plugin.jx.svc.cluster.local/lighthouse/events
         name: lighthouse-webui-plugin
+      prashant-cicd/simple-java-maven-app:
+      - endpoint: http://cd-indicators.jx.svc.cluster.local/lighthouse/events
+        name: cd-indicators
+      - endpoint: http://lighthouse-webui-plugin.jx.svc.cluster.local/lighthouse/events
+        name: lighthouse-webui-plugin
     heart: {}
     label:
       additional_labels: null
@@ -28,6 +37,20 @@ data:
     plugins:
       prashant-cicd/jx3-minikube:
       - config-updater
+      - approve
+      - assign
+      - help
+      - hold
+      - lgtm
+      - lifecycle
+      - override
+      - size
+      - trigger
+      - wip
+      - cat
+      - dog
+      - pony
+      prashant-cicd/simple-java-maven-app:
       - approve
       - assign
       - help
@@ -53,6 +76,11 @@ data:
     - repos:
       - prashant-cicd/jx3-minikube
       trusted_org: prashant-cicd
+    - repos:
+      - prashant-cicd/simple-java-maven-app
+      trusted_org: prashant-cicd
+    welcome:
+    - message_template: Welcome
 kind: ConfigMap
 metadata:
   creationTimestamp: null
