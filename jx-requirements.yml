@@ -14,6 +14,7 @@ spec:
     gitName: github
     gitServer: https://github.com
     provider: minikube
+    registry: 10.107.200.109
   environments:
   - key: dev
     owner: prashant-cicd
