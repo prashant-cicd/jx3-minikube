@@ -8,6 +8,7 @@ spec:
     provider: https://github.com
     providerKind: github
     repositories:
+    - name: android-quickstart-demo
     - name: simple-java-maven-app
     scheduler: in-repo
   slack:
