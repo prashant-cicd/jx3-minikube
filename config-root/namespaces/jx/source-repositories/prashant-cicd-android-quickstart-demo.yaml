@@ -1,0 +1,22 @@
+apiVersion: jenkins.io/v1
+kind: SourceRepository
+metadata:
+  creationTimestamp: null
+  labels:
+    owner: prashant-cicd
+    provider: github
+    repository: android-quickstart-demo
+    gitops.jenkins-x.io/pipeline: 'namespaces'
+  name: prashant-cicd-android-quickstart-demo
+  namespace: jx
+spec:
+  httpCloneURL: https://github.com/prashant-cicd/android-quickstart-demo.git
+  org: prashant-cicd
+  provider: https://github.com
+  providerKind: github
+  providerName: github
+  repo: android-quickstart-demo
+  scheduler:
+    kind: ""
+    name: in-repo
+  url: https://github.com/prashant-cicd/android-quickstart-demo

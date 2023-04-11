@@ -8,6 +8,10 @@ data:
       require_self_approval: true
     - lgtm_acts_as_approve: true
       repos:
+      - prashant-cicd/android-quickstart-demo
+      require_self_approval: true
+    - lgtm_acts_as_approve: true
+      repos:
       - prashant-cicd/simple-java-maven-app
       require_self_approval: true
     cat: {}
@@ -20,6 +24,11 @@ data:
         env/prow/plugins.yaml:
           name: plugins
     external_plugins:
+      prashant-cicd/android-quickstart-demo:
+      - endpoint: http://cd-indicators.jx.svc.cluster.local/lighthouse/events
+        name: cd-indicators
+      - endpoint: http://lighthouse-webui-plugin.jx.svc.cluster.local/lighthouse/events
+        name: lighthouse-webui-plugin
       prashant-cicd/jx3-minikube:
       - endpoint: http://cd-indicators.jx.svc.cluster.local/lighthouse/events
         name: cd-indicators
@@ -35,6 +44,20 @@ data:
       additional_labels: null
     owners: {}
     plugins:
+      prashant-cicd/android-quickstart-demo:
+      - approve
+      - assign
+      - help
+      - hold
+      - lgtm
+      - lifecycle
+      - override
+      - size
+      - trigger
+      - wip
+      - cat
+      - dog
+      - pony
       prashant-cicd/jx3-minikube:
       - config-updater
       - approve
@@ -75,6 +98,9 @@ data:
     triggers:
     - repos:
       - prashant-cicd/jx3-minikube
+      trusted_org: prashant-cicd
+    - repos:
+      - prashant-cicd/android-quickstart-demo
       trusted_org: prashant-cicd
     - repos:
       - prashant-cicd/simple-java-maven-app
